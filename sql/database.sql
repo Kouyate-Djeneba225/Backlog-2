@@ -4,7 +4,7 @@ COLLATE utf8mb4_general_ci;
 
 USE promo;
 
-CREATE TABLE IF NOT EXISTS user (
+CREATE TABLE IF NOT EXISTS users (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(120) NOT NULL,
     description TEXT NULL,
