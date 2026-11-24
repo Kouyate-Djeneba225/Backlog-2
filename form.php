@@ -31,7 +31,7 @@
         <button type="submit">Envoyer ma proposition</button>
 
     </form>
-    <button type="button" onclick="location.href='list_idee.php'">
+    <button type="button" onclick="location.href='includes/list_idee.php'">
     Voir les idées
 </button>
 

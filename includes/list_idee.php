@@ -40,39 +40,39 @@ $ideas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <?php else : ?>
 
-    <?php foreach ($ideas as $idea) : ?>
+    <div class="ideas">
 
-        <div class="idee">
+        <?php foreach ($ideas as $idea) : ?>
 
-            <h2>
-                <?= htmlspecialchars($idea['title']) ?>
-            </h2>
+            <div class="idee">
 
-            <p>
-                <?= nl2br(htmlspecialchars($idea['description'])) ?>
-            </p>
+                <h2>
+                    <?= htmlspecialchars($idea['title']) ?>
+                </h2>
 
-            <p>
-                <strong>Pseudo :</strong>
-                <?= htmlspecialchars($idea['username']) ?>
-            </p>
+                <p class="description">
+                    <?= nl2br(htmlspecialchars($idea['description'])) ?>
+                </p>
 
-            <p>
-                <strong>Date :</strong>
-                <?= date('d/m/Y', strtotime($idea['created_at'])) ?>
-            </p>
+                <p>
+                    <strong>Pseudo :</strong>
+                    <?= htmlspecialchars($idea['username']) ?>
+                </p>
 
-            <p>
+                <p>
+                    <strong>Date :</strong>
+                    <?= date('d/m/Y', strtotime($idea['created_at'])) ?>
+                </p>
+
                 <div class="vote">
-     <?= $idea['polling'] ?> vote(s)
-</div>
-            </p>
+                    <?= $idea['polling'] ?> vote(s)
+                </div>
 
-        </div>
+            </div>
 
-        <hr>
+        <?php endforeach; ?>
 
-    <?php endforeach; ?>
+    </div>
 
 <?php endif; ?>
 
