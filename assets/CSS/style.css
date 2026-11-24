@@ -1,0 +1,102 @@
+
+/* Réinitialisation des styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style général de la page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Conteneur du formulaire */
+form {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+     margin-bottom: 20px;
+}
+
+/* Titre de la page */
+h1 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+/* Espacement entre les champs */
+form div {
+    margin-bottom: 20px;
+}
+
+/* Libellés */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Champs de saisie */
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+}
+
+/* Zone de description */
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Effet lorsque l'utilisateur clique dans un champ */
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #5269d9;
+}
+
+/* Bouton d'envoi */
+button {
+    width: 100%;
+    padding: 13px;
+    background-color: #5269d9;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Effet au survol du bouton */
+button:hover {
+    background-color: #3d50b5;
+}
+
+/* Adaptation aux petits écrans */
+@media screen and (max-width: 600px) {
+    form {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
