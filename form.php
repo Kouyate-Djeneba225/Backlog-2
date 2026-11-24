@@ -11,7 +11,7 @@
 
   <h1 id="form-title">Proposer une idéé</h1>
 
-    <form action="form_action.php" method="POST">
+    <form action="includes/form_action.php" method="POST"> 
 
         <div>
             <label for="titre">Titre :</label>

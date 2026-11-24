@@ -51,27 +51,31 @@ $ideas = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="idee">
 
                 <h2>
-                    <?= htmlspecialchars($idea['title']) ?>
+                    <?= htmlspecialchars($idea['title'], ENT_QUOTES, 'UTF-8') ?>
                 </h2>
 
                 <p class="description">
-                    <?= nl2br(htmlspecialchars($idea['description'])) ?>
+                    <?= nl2br(htmlspecialchars($idea['description'], ENT_QUOTES, 'UTF-8')) ?>
                 </p>
 
                 <p>
                     <strong>Pseudo :</strong>
-                    <?= htmlspecialchars($idea['username']) ?>
+                    <?= htmlspecialchars($idea['username'], ENT_QUOTES, 'UTF-8') ?>
                 </p>
 
                 <p>
                     <strong>Date :</strong>
                     <?= date('d/m/Y', strtotime($idea['created_at'])) ?>
                 </p>
-
+ 
                 <div class="vote">
                     <?= $idea['polling'] ?> vote(s)
                 </div>
 
+                <form action="polling.action.php" method="POST">
+                    <input type="hidden" name="id" value="<?= $idea['id'] ?>">
+                    <button type="submit">+1</button>
+                </form>
             </div>
 
         <?php endforeach; ?>

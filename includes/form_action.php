@@ -15,5 +15,5 @@
      'description' => $description,
      'pseudo' => $pseudo,
  ]);
- header('Location: list_idee.php?ajout=1', true, 303);
+header('Location: list_idee.php?ajout=1', true, 303);
  exit;
