@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-/* Corps de la page */
+/* Corps de la page : contenu centré, empilé verticalement */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f6fa;
@@ -15,62 +15,19 @@ body {
     align-items: center;
 }
 
-/* Titre principal */
 h1 {
     color: #5269d9;
     margin-bottom: 30px;
     text-align: center;
 }
 
-/* Carte d'idée */
-.idee {
-    width: 100%;
-    max-width: 800px;
-    background-color: white;
-    padding: 25px;
+/* Message de confirmation après l'ajout d'une idée */
+[role="status"] {
+    background-color: #e6f4ea;
+    color: #1e6b34;
+    padding: 12px 20px;
+    border-radius: 8px;
     margin-bottom: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s ease;
-}
-
-.idee:hover {
-    transform: translateY(-3px);
-}
-
-/* Titre de l'idée */
-.idee h2 {
-    color: #5269d9;
-    margin-bottom: 15px;
-    font-size: 24px;
-}
-
-/* Description */
-.idee p {
-    margin-bottom: 10px;
-    line-height: 1.6;
-    color: #333;
-}
-
-/* Informations */
-.idee strong {
-    color: #222;
-}
-
-/* Votes */
-.vote {
-    display: inline-block;
-    background-color: #5269d9;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-/* Ligne de séparation */
-hr {
-    display: none;
 }
 
 /* Message si aucune idée */
@@ -79,25 +36,8 @@ hr {
     padding: 20px;
     border-radius: 10px;
     color: #666;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
-
-/* Responsive */
-@media (max-width: 768px) {
-    body {
-        padding: 15px;
-    }
-
-    .idee {
-        padding: 20px;
-    }
-
-    .idee h2 {
-        font-size: 20px;
-    }
-}
-
-
 
 /* Grille : 3 colonnes de largeur égale sur ordinateur */
 .ideas {
@@ -108,34 +48,93 @@ hr {
     max-width: 1100px;
 }
 
-/* Une carte */
+/* Une carte : colonne verticale */
 .idee {
     background-color: white;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
     overflow-wrap: anywhere;
+    transition: transform 0.2s ease;
+}
+
+.idee:hover {
+    transform: translateY(-3px);
 }
 
 .idee h2 {
+    color: #5269d9;
     font-size: 18px;
     margin-bottom: 10px;
 }
 
 .idee p {
     margin-bottom: 8px;
+    line-height: 1.5;
     color: #333;
 }
 
-/* La description prend la place libre : pseudo, date et votes restent alignés en bas */
+/* La description prend la place libre : pseudo, date et votes restent en bas */
 .idee .description {
     flex-grow: 1;
 }
 
+/* Zone de vote : pastille, bouton en dessous, message d'erreur */
+.vote-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+/* Pastille bleue avec le nombre de votes */
+.vote {
+    background-color: #5269d9;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.vote-form button {
+    padding: 8px 14px;
+    background-color: white;
+    color: #5269d9;
+    border: 2px solid #5269d9;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.vote-form button:hover {
+    background-color: #5269d9;
+    color: white;
+}
+
+.vote-form button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/* Message d'erreur du vote : caché s'il est vide */
+.vote-message {
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #c0392b;
+}
+
+.vote-message:empty {
+    display: none;
+}
+
 /* Téléphone : une seule colonne */
 @media screen and (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
     .ideas {
         grid-template-columns: 1fr;
     }

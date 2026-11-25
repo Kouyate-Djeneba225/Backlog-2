@@ -68,14 +68,14 @@ $ideas = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <?= date('d/m/Y', strtotime($idea['created_at'])) ?>
                 </p>
  
-                <div class="vote">
-                    <?= $idea['polling'] ?> vote(s)
-                </div>
+                
 
-                <form action="polling.action.php" method="POST">
-                    <input type="hidden" name="id" value="<?= $idea['id'] ?>">
-                    <button type="submit">+1</button>
-                </form>
+                <form class="vote-form" action="polling.action.php" method="POST">
+    <input type="hidden" name="id" value="<?= (int) $idea['id'] ?>">
+    <span class="vote"><span class="vote-count"><?= (int) $idea['polling'] ?></span> vote(s)
+    <button type="submit">+1</button>
+    <p class="vote-message"></p>
+</form>
             </div>
 
         <?php endforeach; ?>
@@ -83,6 +83,6 @@ $ideas = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
 <?php endif; ?>
-
+<script src="../assets/js/vote.js"></script>
 </body>
 </html>
